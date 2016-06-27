@@ -1,0 +1,2 @@
+light gray #EBEBEB
+dark gray #D8D8D8
