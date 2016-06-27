@@ -1,12 +1,13 @@
-start();
-
-function start() {
-	var myBoard = new board();
+function tile() {
+	this.color = 'light';
 }
+
+tile.prototype = {
+
+};
 
 
 function board() {
-
 }
 
 board.prototype = {
@@ -14,3 +15,12 @@ board.prototype = {
 		console.log("Look at me!");
 	}
 };
+
+
+
+start();
+
+function start() {
+	var myBoard = new board();
+	myBoard.createTiles();
+}
