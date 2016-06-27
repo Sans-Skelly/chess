@@ -1,2 +1,8 @@
 light gray #EBEBEB
 dark gray #D8D8D8
+
+
+board.array will be full of tiles
+tiles will have a few elements such as dark or light color
+tiles will also have an element for which piece is inside if any
+pieces will be ADTs
