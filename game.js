@@ -1,9 +1,10 @@
 start();
 
 function start() {
-	addingBoardColors();
+	var myBoard = new board();
 }
 
-function addingBoardColors() {
+
+function board() {
 
 }
