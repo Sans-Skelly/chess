@@ -8,3 +8,9 @@ function start() {
 function board() {
 
 }
+
+board.prototype = {
+	addColors: function() {
+		console.log("Look at me!");
+	}
+};
