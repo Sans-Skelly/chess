@@ -231,12 +231,28 @@ function clicked(id) {
 	else {
 		// if (validmove) {
 			myGame.secondcell=id;
+			movePiece();
 			//second move
-			//do action
 		// }
 	}
 }
 
+function movePiece() {
+	var cell1 = myBoard.gameArray[myGame.firstcell.toString()[0]][myGame.firstcell.toString()[1]];
+	var cell2 = myBoard.gameArray[myGame.secondcell.toString()[0]][myGame.secondcell.toString()[1]];
+
+	$("#"+myGame.secondcell).addClass(cell1.piecename);
+	cell2.piecename=cell1.piecename;
+	cell2.piececolor=cell1.piececolor;
+
+	$("#"+myGame.firstcell).removeClass(cell1.piecename);
+	$("#"+myGame.firstcell).removeClass('selected');
+	cell1.piecename='.';
+	cell1.piececolor='.';
+
+	myGame.firstcell='';
+	myGame.secondcell='';
+}
 
 
 $(document).ready(function () {
