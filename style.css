@@ -17,6 +17,9 @@
 	line-height: 50px; /* div height */
 }
 .gameboard {
+	width: 400px;
+	height: 400px;
+	margin: auto;
 	font-size: 0;
 }
 
