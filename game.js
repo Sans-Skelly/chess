@@ -193,6 +193,21 @@ board.prototype = {
 };
 
 
+
+function game() {
+	this.whosturn = 'black';
+	this.firstcell = '';
+	this.secondcell = '';
+}
+
+game.prototype = {
+
+};
+
+
+
+
+
 function clicked() {
 
 }
@@ -208,4 +223,6 @@ function start() {
 	myBoard.createTiles();
 	myBoard.addColors();
 	myBoard.setupClicks();
+
+	var myGame = new game();
 }
