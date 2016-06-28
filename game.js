@@ -23,6 +23,15 @@ board.prototype = {
 			console.log(self);
 			for (var i=0; i<8; i++) {
 				var myTile = new tile();
+				myTile.id=index.toString()+i.toString();
+				myTile.htmlElement = $("#"+index.toString()+i.toString()).html();
+				if (i+index%2===0) {
+					//even
+					myTile.color = 'light';
+				}
+				else {
+					myTile.color = 'dark';
+				}
 				self.gameArray[index][i]=myTile;
 			}
 		});
