@@ -39,8 +39,9 @@ board.prototype = {
 };
 
 
-
-start();
+$(document).ready(function () {
+	start();
+});
 
 function start() {
 	var myBoard = new board();
