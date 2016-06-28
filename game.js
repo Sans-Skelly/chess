@@ -15,7 +15,15 @@ function board() {
 
 board.prototype = {
 	addColors: function() {
-		console.log("Look at me!");
+		var self = this;
+		this.gameArray.forEach(function(value, index, array) {
+			for (var i=0; i<8; i++) {
+				$("#"+index.toString()+i.toString()).addClass(self.gameArray[index][i].color);
+				self.gameArray[index][i].htmlElement = $("#"+index.toString()+i.toString()).html();
+				console.log(self.gameArray[index][i]);
+				console.log(self.gameArray[index][i].color);
+			}
+		});
 	},
 	createTiles: function() {
 		var self = this;
