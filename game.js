@@ -220,6 +220,13 @@ function clicked(id) {
 			$("#"+id).addClass("selected");
 			console.log(myGame.firstcell);
 		}
+		else if (myBoard.gameArray[idString[0]][idString[1]].piececolor!="."){
+			alert("That isn't your piece");
+		}
+		else {
+			alert("Selected your piece you wish to move first");
+		}
+
 	}
 	else {
 		// if (validmove) {
