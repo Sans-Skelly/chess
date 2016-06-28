@@ -2,6 +2,7 @@ function tile() {
 	this.color = 'light';
 	this.htmlElement = '';
 	this.id = '';
+	this.piecename = '.';
 }
 
 tile.prototype = {
