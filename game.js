@@ -28,17 +28,16 @@ board.prototype = {
 	createTiles: function() {
 		var self = this;
 		this.gameArray.forEach(function(value, index, array) {
-			console.log(self);
 			for (var i=0; i<8; i++) {
 				var myTile = new tile();
 				myTile.id=index.toString()+i.toString();
-				myTile.htmlElement = $("#"+index.toString()+i.toString()).html();
-				if (i+index%2===0) {
+				myTile.htmlElement = $("#"+index.toString()+i.toString());
+				if ((i+index)%2===0) {
 					//even
-					myTile.color = 'light';
+					myTile.color = 'light-tile';
 				}
 				else {
-					myTile.color = 'dark';
+					myTile.color = 'dark-tile';
 				}
 				self.gameArray[index][i]=myTile;
 			}
