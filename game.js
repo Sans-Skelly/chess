@@ -54,4 +54,5 @@ $(document).ready(function () {
 function start() {
 	var myBoard = new board();
 	myBoard.createTiles();
+	myBoard.addColors();
 }
