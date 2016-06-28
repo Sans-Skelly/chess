@@ -231,7 +231,6 @@ function clicked(id) {
 	else {
 		// if (validmove) {
 			myGame.secondcell=id;
-			$("#"+id).addClass("selected");
 			//second move
 			//do action
 		// }
