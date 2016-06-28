@@ -210,8 +210,7 @@ game.prototype = {
 
 
 
-function clicked() {
-
+function clicked(id) {
 }
 
 
