@@ -31,15 +31,24 @@ board.prototype = {
 		this.gameArray.forEach(function(value, index, array) {
 			for (var i=0; i<8; i++) {
 				var myTile = new tile();
+
+				//Set ID and HTML element
 				myTile.id=index.toString()+i.toString();
 				myTile.htmlElement = $("#"+index.toString()+i.toString()).html();
+
+
+				//Set Color
 				if ((i+index)%2===0) {
-					//even
 					myTile.color = 'light-tile';
 				}
 				else {
 					myTile.color = 'dark-tile';
 				}
+
+
+				//Set piece name
+				
+
 				self.gameArray[index][i]=myTile;
 			}
 		});
