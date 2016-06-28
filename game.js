@@ -3,6 +3,7 @@ function tile() {
 	this.htmlElement = '';
 	this.id = '';
 	this.piecename = '.';
+	this.piececolor = '.';
 }
 
 tile.prototype = {
@@ -73,12 +74,15 @@ board.prototype = {
 							break;
 						default:
 					}
+					myTile.piececolor="white";
 				}
 				if (index == 1) {
 					myTile.piecename="white-pawn";
+					myTile.piececolor="white";
 				}
 				if (index == 6) {
 					myTile.piecename="black-pawn";
+					myTile.piececolor="black";
 				}
 				if (index === 7) {
 					switch (i) {
@@ -108,6 +112,7 @@ board.prototype = {
 							break;
 						default:
 					}
+					myTile.piececolor="black";
 				}
 				self.gameArray[index][i]=myTile;
 			}
