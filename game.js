@@ -221,10 +221,10 @@ $(document).ready(function () {
 });
 
 function start() {
-	var myBoard = new board();
+	myBoard = new board();
 	myBoard.createTiles();
 	myBoard.addColors();
 	myBoard.setupClicks();
 
-	var myGame = new game();
+	myGame = new game();
 }
