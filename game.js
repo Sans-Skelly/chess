@@ -1,5 +1,7 @@
 function tile() {
 	this.color = 'light';
+	this.htmlElement = '';
+	this.id = '';
 }
 
 tile.prototype = {
