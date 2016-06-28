@@ -217,12 +217,14 @@ function clicked(id) {
 	if (myGame.firstcell==='') {
 		if (myBoard.gameArray[idString[0]][idString[1]].piececolor==whosTurn) {
 			myGame.firstcell=id;
+			$("#"+id).addClass("selected");
 			console.log(myGame.firstcell);
 		}
 	}
 	else {
 		// if (validmove) {
 			myGame.secondcell=id;
+			$("#"+id).addClass("selected");
 			//second move
 			//do action
 		// }
