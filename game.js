@@ -211,6 +211,22 @@ game.prototype = {
 
 
 function clicked(id) {
+	var idString = id.toString();
+	var whosTurn = myGame.whosturn;
+
+	if (myGame.firstcell==='') {
+		if (myBoard.gameArray[idString[0]][idString[1]].piececolor==whosTurn) {
+			myGame.firstcell=id;
+			console.log(myGame.firstcell);
+		}
+	}
+	else {
+		// if (validmove) {
+			myGame.secondcell=id;
+			//second move
+			//do action
+		// }
+	}
 }
 
 
