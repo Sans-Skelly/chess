@@ -109,9 +109,6 @@ board.prototype = {
 						default:
 					}
 				}
-
-
-
 				self.gameArray[index][i]=myTile;
 			}
 		});
