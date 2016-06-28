@@ -193,6 +193,12 @@ board.prototype = {
 };
 
 
+function clicked() {
+
+}
+
+
+
 $(document).ready(function () {
 	start();
 });
