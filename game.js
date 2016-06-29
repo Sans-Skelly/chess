@@ -263,6 +263,7 @@ function clicked(id) {
 			}
 			else if (isValidMove(myGame.firstcell, id)) {
 				//second move
+				cell1.nummoves++;
 				myGame.secondcell = id;
 				movePiece();
 			}
