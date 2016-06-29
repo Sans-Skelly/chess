@@ -292,7 +292,13 @@ function movePiece() {
 }
 function isValidMove(fromID, toID) {
 	var fromIDText = fromID.toString();
+	var fromIDX = parseInt(fromIDText[0]);
+	var fromIDY = parseInt(fromIDText[1]);
+
 	var toIDText = toID.toString();
+	var toIDX = parseInt(toIDText[0]);
+	var toIDY = parseInt(toIDText[1]);
+
 
 	var cell1 = myBoard.gameArray[fromIDText[0]][fromIDText[1]];
 	var cell2 = myBoard.gameArray[toIDText[0]][toIDText[1]];
