@@ -2,7 +2,7 @@
 function tile() {
 	this.color = "light";
 	this.htmlElement = "";
-	this.id = "";
+	this.id = ""; //YX
 	this.piecename = ".";
 	this.piececolor = ".";
 	this.piecetype = ".";
