@@ -5,6 +5,8 @@ function tile() {
 	this.id = "";
 	this.piecename = ".";
 	this.piececolor = ".";
+	this.piecetype = ".";
+	this.nummoves = 0;
 }
 tile.prototype = {};
 function board() {
@@ -45,27 +47,35 @@ board.prototype = {
 					switch (i) {
 						case 0:
 							myTile.piecename = "white-rook";
+							myTile.piecetype = "rook";
 							break;
 						case 1:
 							myTile.piecename = "white-knight";
+							myTile.piecetype = "knight";
 							break;
 						case 2:
 							myTile.piecename = "white-bishop";
+							myTile.piecetype = "bishop";
 							break;
 						case 3:
 							myTile.piecename = "white-queen";
+							myTile.piecetype = "queen";
 							break;
 						case 4:
 							myTile.piecename = "white-king";
+							myTile.piecetype = "king";
 							break;
 						case 5:
 							myTile.piecename = "white-bishop";
+							myTile.piecetype = "bishop";
 							break;
 						case 6:
 							myTile.piecename = "white-knight";
+							myTile.piecetype = "knight";
 							break;
 						case 7:
 							myTile.piecename = "white-rook";
+							myTile.piecetype = "rook";
 							break;
 						default:
 					}
@@ -74,36 +84,46 @@ board.prototype = {
 				if (index == 1) {
 					myTile.piecename = "white-pawn";
 					myTile.piececolor = "white";
+					myTile.piecetype = "pawn";
 				}
 				if (index == 6) {
 					myTile.piecename = "black-pawn";
 					myTile.piececolor = "black";
+					myTile.piecetype = "pawn";
 				}
 				if (index == 7) {
 					switch (i) {
 						case 0:
 							myTile.piecename = "black-rook";
+							myTile.piecetype = "rook";
 							break;
 						case 1:
 							myTile.piecename = "black-knight";
+							myTile.piecetype = "knight";
 							break;
 						case 2:
 							myTile.piecename = "black-bishop";
+							myTile.piecetype = "bishop";
 							break;
 						case 3:
 							myTile.piecename = "black-queen";
+							myTile.piecetype = "queen";
 							break;
 						case 4:
 							myTile.piecename = "black-king";
+							myTile.piecetype = "king";
 							break;
 						case 5:
 							myTile.piecename = "black-bishop";
+							myTile.piecetype = "bishop";
 							break;
 						case 6:
 							myTile.piecename = "black-knight";
+							myTile.piecetype = "knight";
 							break;
 						case 7:
 							myTile.piecename = "black-rook";
+							myTile.piecetype = "rook";
 							break;
 						default:
 					}
