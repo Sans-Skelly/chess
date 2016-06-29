@@ -277,6 +277,11 @@ function movePiece() {
 	var cell1 = myBoard.gameArray[myGame.firstcell.toString()[0]][myGame.firstcell.toString()[1]];
 	var cell2 = myBoard.gameArray[myGame.secondcell.toString()[0]][myGame.secondcell.toString()[1]];
 
+	$("#"+myGame.secondcell).removeClass(cell2.piecename);
+	cell2.piecename = ".";
+	cell2.piececolor = ".";
+	cell2.piecetype = ".";
+	cell2.nummoves = 0;
 	$("#"+myGame.secondcell).addClass(cell1.piecename);
 	cell2.piecename = cell1.piecename;
 	cell2.piececolor = cell1.piececolor;
