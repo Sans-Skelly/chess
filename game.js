@@ -280,11 +280,13 @@ function movePiece() {
 	$("#"+myGame.secondcell).addClass(cell1.piecename);
 	cell2.piecename = cell1.piecename;
 	cell2.piececolor = cell1.piececolor;
+	cell2.piecetype = cell1.piecetype;
 
 	$("#"+myGame.firstcell).removeClass(cell1.piecename);
 	$("#"+myGame.firstcell).removeClass("selected");
 	cell1.piecename = ".";
 	cell1.piececolor = ".";
+	cell1.piecetype = ".";
 
 	myGame.firstcell = "";
 	myGame.secondcell = "";
