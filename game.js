@@ -236,6 +236,7 @@ function clicked(id) {
 
 
 	if (myGame.firstcell === "") {
+		// first click
 		if (currentcell.piececolor == whosTurn) {
 			myGame.firstcell = id;
 			$("#"+id).addClass("selected");
@@ -250,6 +251,7 @@ function clicked(id) {
 
 	}
 	else {
+		//second click
 		var cell1 = myBoard.gameArray[myGame.firstcell.toString()[0]][myGame.firstcell.toString()[1]];
 		if (myGame.firstcell == id) {
 			//first move = second move
