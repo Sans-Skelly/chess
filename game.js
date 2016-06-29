@@ -295,12 +295,12 @@ function movePiece() {
 }
 function isValidMove(fromID, toID) {
 	var fromIDText = fromID.toString();
-	var fromIDX = parseInt(fromIDText[0]);
-	var fromIDY = parseInt(fromIDText[1]);
+	var fromIDX = parseInt(fromIDText[1]);
+	var fromIDY = parseInt(fromIDText[0]);
 
 	var toIDText = toID.toString();
-	var toIDX = parseInt(toIDText[0]);
-	var toIDY = parseInt(toIDText[1]);
+	var toIDX = parseInt(toIDText[1]);
+	var toIDY = parseInt(toIDText[0]);
 
 	var XDifferece = Math.abs(fromIDX-toIDX);
 	var YDifferece = Math.abs(fromIDY-toIDY);
