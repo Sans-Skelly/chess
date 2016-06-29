@@ -300,6 +300,8 @@ function isValidMove(fromID, toID) {
 	var toIDX = parseInt(toIDText[0]);
 	var toIDY = parseInt(toIDText[1]);
 
+	var XDifferece = Math.abs(fromIDX-toIDX);
+	var YDifferece = Math.abs(fromIDY-toIDY);
 
 	var cell1 = myBoard.gameArray[fromIDText[0]][fromIDText[1]];
 	var cell2 = myBoard.gameArray[toIDText[0]][toIDText[1]];
