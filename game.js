@@ -324,7 +324,11 @@ function isValidMove(fromID, toID) {
 	var cell1 = myBoard.gameArray[fromIDText[0]][fromIDText[1]];
 	var cell2 = myBoard.gameArray[toIDText[0]][toIDText[1]];
 
-
+	var i;
+	var newX;
+	var newY;
+	var tmpcell;
+	
 	if (cell1.piecetype == "pawn") {
 		//PAWN
 		var numberOfYMoves;
@@ -377,8 +381,7 @@ function isValidMove(fromID, toID) {
 
 	}
 	if (cell1.piecetype == "rook") {
-		var tmpcell;
-		var i;
+
 		var negitiveI = 1;
 		if (XDifferece === 0 && YDifferece > 0) {
 			// Moving up or down
@@ -388,7 +391,7 @@ function isValidMove(fromID, toID) {
 			}
 
 			for (i = 1; i < YDifferece; i++) {
-				var newY = fromIDY + (i * negitiveI);
+				newY = fromIDY + (i * negitiveI);
 				tmpcell = myBoard.gameArray[newY][fromIDX];
 				if (tmpcell.piececolor != ".") {
 					return false;
@@ -403,7 +406,7 @@ function isValidMove(fromID, toID) {
 				negitiveI = -1;
 			}
 			for (i = 1; i < XDifferece; i++) {
-				var newX = fromIDX + (i * negitiveI);
+				newX = fromIDX + (i * negitiveI);
 				tmpcell = myBoard.gameArray[fromIDY][newX];
 				if (tmpcell.piececolor != ".") {
 					return false;
