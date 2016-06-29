@@ -239,11 +239,17 @@ function clicked(id) {
 
 	}
 	else {
+		if (myGame.firstcell==id) {
+			//first move = second move
+			alert("Can't move piece to same location");
+		}
+		else {
 		// if (validmove) {
 			myGame.secondcell=id;
 			movePiece();
 			//second move
 		// }
+		}
 	}
 }
 
