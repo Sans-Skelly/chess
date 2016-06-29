@@ -232,13 +232,16 @@ function clicked(id) {
 	var idString = id.toString();
 	var whosTurn = myGame.whosturn;
 
+	var currentcell = myBoard.gameArray[idString[0]][idString[1]];
+
+
 	if (myGame.firstcell === "") {
-		if (myBoard.gameArray[idString[0]][idString[1]].piececolor == whosTurn) {
+		if (currentcell.piececolor == whosTurn) {
 			myGame.firstcell = id;
 			$("#"+id).addClass("selected");
 			console.log(myGame.firstcell);
 		}
-		else if (myBoard.gameArray[idString[0]][idString[1]].piececolor != "."){
+		else if (currentcell.piececolor != "."){
 			alert("That isn't your piece");
 		}
 		else {
@@ -247,18 +250,19 @@ function clicked(id) {
 
 	}
 	else {
+		var cell1 = myBoard.gameArray[myGame.firstcell.toString()[0]][myGame.firstcell.toString()[1]];
 		if (myGame.firstcell == id) {
 			//first move = second move
 			alert("Can't move piece to same location");
 		}
 		else {
-			if (isValidMove(myGame.firstcell, id)) {
+			if (cell1.piececolor == currentcell.piececolor) {
+				alert("Can't have two pieces on one space");
+			}
+			else if (isValidMove(myGame.firstcell, id)) {
 				//second move
 				myGame.secondcell = id;
 				movePiece();
-			}
-			if (myGame.firstcell.piececolor == myGame.secondcell.piececolor) {
-				alert("Can't have two pieces on one space");
 			}
 			else {
 				alert("That is not a valid move");
