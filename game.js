@@ -277,18 +277,23 @@ function movePiece() {
 	var cell1 = myBoard.gameArray[myGame.firstcell.toString()[0]][myGame.firstcell.toString()[1]];
 	var cell2 = myBoard.gameArray[myGame.secondcell.toString()[0]][myGame.secondcell.toString()[1]];
 
+
+	//Remove piece in new cell (take piece)
 	$("#"+myGame.secondcell).removeClass(cell2.piecename);
 	cell2.piecename = ".";
 	cell2.piececolor = ".";
 	cell2.piecetype = ".";
 	cell2.nummoves = 0;
+
+
+	//Set old cell piece to new cell piece
 	$("#"+myGame.secondcell).addClass(cell1.piecename);
 	cell2.piecename = cell1.piecename;
 	cell2.piececolor = cell1.piececolor;
 	cell2.piecetype = cell1.piecetype;
 	cell2.nummoves = cell1.nummoves;
 
-
+	//Remove old cell piece
 	$("#"+myGame.firstcell).removeClass(cell1.piecename);
 	$("#"+myGame.firstcell).removeClass("selected");
 	cell1.piecename = ".";
@@ -296,9 +301,11 @@ function movePiece() {
 	cell1.piecetype = ".";
 	cell1.nummoves = 0;
 
+	//Reset cells so new turn can take place
 	myGame.firstcell = "";
 	myGame.secondcell = "";
 
+	//Switch turns
 	myGame.switchTurns();
 }
 function isValidMove(fromID, toID) {
