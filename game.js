@@ -428,7 +428,34 @@ function isValidMove(fromID, toID) {
 		}
 
 	}
-
+	if (cell1.piecetype == "bishop") {
+		var negitiveIX = 1;
+		var negitiveIY = 1;
+		if (XDifferece == YDifferece) {
+			if ((fromIDX - toIDX) > 0) {
+				// lower x
+				negitiveIX = -1;
+			}
+			if ((fromIDY - toIDY) > 0) {
+				//lower y
+				negitiveIY = -1;
+				console.log("negitive y");
+			}
+			for (i = 1; i < XDifferece; i++) {
+				newX = fromIDX + (i * negitiveIX);
+				newY = fromIDY + (i * negitiveIY);
+				console.log(newY + " " + newX);
+				tmpcell = myBoard.gameArray[newY][newX];
+				if (tmpcell.piececolor != ".") {
+					return false;
+				}
+			}
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
 
 
 
