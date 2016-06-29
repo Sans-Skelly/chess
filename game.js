@@ -415,6 +415,18 @@ function isValidMove(fromID, toID) {
 			return false;
 		}
 	}
+	if (cell1.piecetype == "king") {
+		if (XDifferece <= 1 && YDifferece <= 1) {
+			return true;
+		}
+		else {
+			//Moving more then 1 square
+			return false;
+		}
+
+	}
+
+
 
 
 	// return true;
