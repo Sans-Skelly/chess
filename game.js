@@ -376,6 +376,45 @@ function isValidMove(fromID, toID) {
 		}
 
 	}
+	if (cell1.piecetype == "rook") {
+		var tmpcell;
+		var i;
+		var negitiveI = 1;
+		if (XDifferece === 0 && YDifferece > 0) {
+			// Moving up or down
+			if (fromIDY > toIDY) {
+				// moving up
+				negitiveI = -1;
+			}
+
+			for (i = 1; i < YDifferece; i++) {
+				var newY = fromIDY + (i * negitiveI);
+				tmpcell = myBoard.gameArray[newY][fromIDX];
+				if (tmpcell.piececolor != ".") {
+					return false;
+				}
+			}
+			return true;
+		}
+		else if (XDifferece > 0 && YDifferece === 0) {
+			// Moving left or right
+			if (fromIDX > toIDX) {
+				// moving left
+				negitiveI = -1;
+			}
+			for (i = 1; i < XDifferece; i++) {
+				var newX = fromIDX + (i * negitiveI);
+				tmpcell = myBoard.gameArray[fromIDY][newX];
+				if (tmpcell.piececolor != ".") {
+					return false;
+				}
+			}
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
 
 
 	// return true;
