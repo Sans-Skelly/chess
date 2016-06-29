@@ -252,11 +252,11 @@ function clicked(id) {
 			alert("Can't move piece to same location");
 		}
 		else {
-			// if (validmove) {
+			if (isValidMove(myGame.firstcell, id)) {
 				//second move
 				myGame.secondcell = id;
 				movePiece();
-			// }
+			}
 			if (myGame.firstcell.piececolor == myGame.secondcell.piececolor) {
 				alert("Can't have two pieces on one space");
 			}
@@ -283,6 +283,17 @@ function movePiece() {
 	myGame.secondcell = "";
 
 	myGame.switchTurns();
+}
+function isValidMove(fromID, toID) {
+	var cell1 = myBoard.gameArray[fromID.toString()[0]][fromID.toString()[1]];
+	var cell2 = myBoard.gameArray[toID.toString()[0]][toID.toString()[1]];
+
+
+
+	if (cell1.piecetype == "pawn") {
+
+	}
+	return true;
 }
 
 //On Load
