@@ -328,7 +328,7 @@ function isValidMove(fromID, toID) {
 	var newX;
 	var newY;
 	var tmpcell;
-	
+
 	if (cell1.piecetype == "pawn") {
 		//PAWN
 		var numberOfYMoves;
@@ -456,7 +456,8 @@ function isValidMove(fromID, toID) {
 			return false;
 		}
 	}
-
+	//queen
+	//knight
 
 
 	// return true;
