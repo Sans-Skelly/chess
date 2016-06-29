@@ -301,7 +301,7 @@ function isValidMove(fromID, toID) {
 	if (cell1.piecetype == "pawn") {
 
 	}
-	return true;
+	// return true;
 }
 
 //On Load
