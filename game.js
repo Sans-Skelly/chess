@@ -291,9 +291,11 @@ function movePiece() {
 	myGame.switchTurns();
 }
 function isValidMove(fromID, toID) {
-	var cell1 = myBoard.gameArray[fromID.toString()[0]][fromID.toString()[1]];
-	var cell2 = myBoard.gameArray[toID.toString()[0]][toID.toString()[1]];
+	var fromIDText = fromID.toString();
+	var toIDText = toID.toString();
 
+	var cell1 = myBoard.gameArray[fromIDText[0]][fromIDText[1]];
+	var cell2 = myBoard.gameArray[toIDText[0]][toIDText[1]];
 
 
 	if (cell1.piecetype == "pawn") {
