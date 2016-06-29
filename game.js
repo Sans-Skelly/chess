@@ -257,6 +257,12 @@ function clicked(id) {
 				myGame.secondcell = id;
 				movePiece();
 			// }
+			if (myGame.firstcell.piececolor == myGame.secondcell.piececolor) {
+				alert("Can't have two pieces on one space");
+			}
+			else {
+				alert("That is not a valid move");
+			}
 		}
 	}
 }
