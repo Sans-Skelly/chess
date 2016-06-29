@@ -1,3 +1,4 @@
+//ADTs
 function tile() {
 	this.color = "light";
 	this.htmlElement = "";
@@ -5,16 +6,10 @@ function tile() {
 	this.piecename = ".";
 	this.piececolor = ".";
 }
-
-tile.prototype = {
-
-};
-
-
+tile.prototype = {};
 function board() {
 	this.gameArray = [[],[],[],[],[],[],[],[]];
 }
-
 board.prototype = {
 	addColors: function() {
 		var self = this;
@@ -193,15 +188,11 @@ board.prototype = {
 
 	}
 };
-
-
-
 function game() {
 	this.whosturn = "black";
 	this.firstcell = "";
 	this.secondcell = "";
 }
-
 game.prototype = {
 	switchTurns: function () {
 		if (this.whosturn == "black") {
@@ -216,10 +207,7 @@ game.prototype = {
 	}
 };
 
-
-
-
-
+//Functions
 function clicked(id) {
 	var idString = id.toString();
 	var whosTurn = myGame.whosturn;
@@ -252,7 +240,6 @@ function clicked(id) {
 		}
 	}
 }
-
 function movePiece() {
 	var cell1 = myBoard.gameArray[myGame.firstcell.toString()[0]][myGame.firstcell.toString()[1]];
 	var cell2 = myBoard.gameArray[myGame.secondcell.toString()[0]][myGame.secondcell.toString()[1]];
@@ -272,11 +259,10 @@ function movePiece() {
 	myGame.switchTurns();
 }
 
-
+//On Load
 $(document).ready(function () {
 	start();
 });
-
 function start() {
 	myBoard = new board();
 	myBoard.createTiles();
