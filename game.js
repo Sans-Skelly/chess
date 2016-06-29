@@ -326,8 +326,58 @@ function isValidMove(fromID, toID) {
 
 
 	if (cell1.piecetype == "pawn") {
+		//PAWN
+		var numberOfYMoves;
+
+		if (cell1.nummoves === 0) {
+			//Can move two spaces
+			numberOfYMoves = 2;
+		}
+		else {
+			//Can only move one space
+			numberOfYMoves = 1;
+		}
+
+		//Check to see if piece is being moved backwards
+		if ((fromIDY-toIDY) < 0 && myGame.whosturn == "black") {
+			return false;
+		}
+		else if ((fromIDY-toIDY) > 0 && myGame.whosturn == "white") {
+			return false;
+		}
+
+		//Check if valid move
+		else if (YDifferece <= numberOfYMoves && XDifferece === 0) {
+			//Moving forward
+			//check to see if taking another piece
+			if (cell2.piececolor != myGame.whosturn && cell2.piececolor != ".") {
+				//taking piece
+				return false;
+			}
+			else {
+				//not taking piece
+				return true;
+			}
+		}
+		else if (YDifferece <= numberOfYMoves && XDifferece == 1) {
+			//Moving diangle
+			//check to see if taking another piece
+			if (cell2.piececolor != myGame.whosturn && cell2.piececolor != ".") {
+				//taking piece
+				return true;
+			}
+			else {
+				//not taking piece
+				return false;
+			}
+		}
+		else {
+			return false;
+		}
 
 	}
+
+
 	// return true;
 }
 
