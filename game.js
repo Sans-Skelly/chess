@@ -359,7 +359,7 @@ function isValidMove(fromID, toID) {
 				return true;
 			}
 		}
-		else if (YDifferece <= numberOfYMoves && XDifferece == 1) {
+		else if (YDifferece == 1 && XDifferece == 1) {
 			//Moving diangle
 			//check to see if taking another piece
 			if (cell2.piececolor != myGame.whosturn && cell2.piececolor != ".") {
