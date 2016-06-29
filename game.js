@@ -255,7 +255,8 @@ function clicked(id) {
 		var cell1 = myBoard.gameArray[myGame.firstcell.toString()[0]][myGame.firstcell.toString()[1]];
 		if (myGame.firstcell == id) {
 			//first move = second move
-			alert("Can't move piece to same location");
+			myGame.firstcell = "";
+			$("#"+id).removeClass("selected");
 		}
 		else {
 			if (cell1.piececolor == currentcell.piececolor) {
