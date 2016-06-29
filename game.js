@@ -203,7 +203,17 @@ function game() {
 }
 
 game.prototype = {
+	switchTurns: function () {
+		if (this.whosturn=='black') {
+			this.whosturn='white';
+			$("#turntext").text("White turn");
+		}
+		else if (this.whosturn=='white') {
+			this.whosturn='black';
+			$("#turntext").text("Black turn");
+		}
 
+	}
 };
 
 
@@ -252,6 +262,8 @@ function movePiece() {
 
 	myGame.firstcell='';
 	myGame.secondcell='';
+
+	myGame.switchTurns();
 }
 
 
