@@ -19,7 +19,7 @@ board.prototype = {
 	addColors: function() {
 		var self = this;
 		this.gameArray.forEach(function(value, index, array) {
-			for (var i=0; i<8; i++) {
+			for (var i = 0; i<8; i++) {
 				$("#"+index.toString()+i.toString()).addClass(self.gameArray[index][i].color);
 				self.gameArray[index][i].htmlElement = $("#"+index.toString()+i.toString()).html();
 			}
@@ -28,16 +28,16 @@ board.prototype = {
 	createTiles: function() {
 		var self = this;
 		this.gameArray.forEach(function(value, index, array) {
-			for (var i=0; i<8; i++) {
+			for (var i = 0; i<8; i++) {
 				var myTile = new tile();
 
 				//Set ID and HTML element
-				myTile.id=index.toString()+i.toString();
+				myTile.id = index.toString()+i.toString();
 				myTile.htmlElement = $("#"+index.toString()+i.toString()).html();
 
 
 				//Set Color
-				if ((i+index)%2===0) {
+				if ((i+index)%2 === 0) {
 					myTile.color = "light-tile";
 				}
 				else {
@@ -49,72 +49,72 @@ board.prototype = {
 				if (index === 0) {
 					switch (i) {
 						case 0:
-							myTile.piecename="white-rook";
+							myTile.piecename = "white-rook";
 							break;
 						case 1:
-							myTile.piecename="white-knight";
+							myTile.piecename = "white-knight";
 							break;
 						case 2:
-							myTile.piecename="white-bishop";
+							myTile.piecename = "white-bishop";
 							break;
 						case 3:
-							myTile.piecename="white-queen";
+							myTile.piecename = "white-queen";
 							break;
 						case 4:
-							myTile.piecename="white-king";
+							myTile.piecename = "white-king";
 							break;
 						case 5:
-							myTile.piecename="white-bishop";
+							myTile.piecename = "white-bishop";
 							break;
 						case 6:
-							myTile.piecename="white-knight";
+							myTile.piecename = "white-knight";
 							break;
 						case 7:
-							myTile.piecename="white-rook";
+							myTile.piecename = "white-rook";
 							break;
 						default:
 					}
-					myTile.piececolor="white";
+					myTile.piececolor = "white";
 				}
 				if (index == 1) {
-					myTile.piecename="white-pawn";
-					myTile.piececolor="white";
+					myTile.piecename = "white-pawn";
+					myTile.piececolor = "white";
 				}
 				if (index == 6) {
-					myTile.piecename="black-pawn";
-					myTile.piececolor="black";
+					myTile.piecename = "black-pawn";
+					myTile.piececolor = "black";
 				}
-				if (index === 7) {
+				if (index == 7) {
 					switch (i) {
 						case 0:
-							myTile.piecename="black-rook";
+							myTile.piecename = "black-rook";
 							break;
 						case 1:
-							myTile.piecename="black-knight";
+							myTile.piecename = "black-knight";
 							break;
 						case 2:
-							myTile.piecename="black-bishop";
+							myTile.piecename = "black-bishop";
 							break;
 						case 3:
-							myTile.piecename="black-queen";
+							myTile.piecename = "black-queen";
 							break;
 						case 4:
-							myTile.piecename="black-king";
+							myTile.piecename = "black-king";
 							break;
 						case 5:
-							myTile.piecename="black-bishop";
+							myTile.piecename = "black-bishop";
 							break;
 						case 6:
-							myTile.piecename="black-knight";
+							myTile.piecename = "black-knight";
 							break;
 						case 7:
-							myTile.piecename="black-rook";
+							myTile.piecename = "black-rook";
 							break;
 						default:
 					}
-					myTile.piececolor="black";
+					myTile.piececolor = "black";
 				}
-				self.gameArray[index][i]=myTile;
+				self.gameArray[index][i] = myTile;
 			}
 		});
 	},
@@ -204,12 +204,12 @@ function game() {
 
 game.prototype = {
 	switchTurns: function () {
-		if (this.whosturn=="black") {
-			this.whosturn="white";
+		if (this.whosturn == "black") {
+			this.whosturn = "white";
 			$("#turntext").text("White turn");
 		}
-		else if (this.whosturn=="white") {
-			this.whosturn="black";
+		else if (this.whosturn == "white") {
+			this.whosturn = "black";
 			$("#turntext").text("Black turn");
 		}
 
@@ -224,13 +224,13 @@ function clicked(id) {
 	var idString = id.toString();
 	var whosTurn = myGame.whosturn;
 
-	if (myGame.firstcell==="") {
-		if (myBoard.gameArray[idString[0]][idString[1]].piececolor==whosTurn) {
-			myGame.firstcell=id;
+	if (myGame.firstcell === "") {
+		if (myBoard.gameArray[idString[0]][idString[1]].piececolor == whosTurn) {
+			myGame.firstcell = id;
 			$("#"+id).addClass("selected");
 			console.log(myGame.firstcell);
 		}
-		else if (myBoard.gameArray[idString[0]][idString[1]].piececolor!="."){
+		else if (myBoard.gameArray[idString[0]][idString[1]].piececolor != "."){
 			alert("That isn't your piece");
 		}
 		else {
@@ -239,14 +239,14 @@ function clicked(id) {
 
 	}
 	else {
-		if (myGame.firstcell==id) {
+		if (myGame.firstcell == id) {
 			//first move = second move
 			alert("Can't move piece to same location");
 		}
 		else {
 			// if (validmove) {
 				//second move
-				myGame.secondcell=id;
+				myGame.secondcell = id;
 				movePiece();
 			// }
 		}
@@ -258,16 +258,16 @@ function movePiece() {
 	var cell2 = myBoard.gameArray[myGame.secondcell.toString()[0]][myGame.secondcell.toString()[1]];
 
 	$("#"+myGame.secondcell).addClass(cell1.piecename);
-	cell2.piecename=cell1.piecename;
-	cell2.piececolor=cell1.piececolor;
+	cell2.piecename = cell1.piecename;
+	cell2.piececolor = cell1.piececolor;
 
 	$("#"+myGame.firstcell).removeClass(cell1.piecename);
 	$("#"+myGame.firstcell).removeClass("selected");
-	cell1.piecename=".";
-	cell1.piececolor=".";
+	cell1.piecename = ".";
+	cell1.piececolor = ".";
 
-	myGame.firstcell="";
-	myGame.secondcell="";
+	myGame.firstcell = "";
+	myGame.secondcell = "";
 
 	myGame.switchTurns();
 }
