@@ -225,7 +225,50 @@ game.prototype = {
 			this.whosturn = "black";
 			$("#turntext").text("Black turn");
 		}
+	},
+	isCheckMate: function (movedCell) {
+		//If moved cell threatens king
+		var myID;
+		if (myGame.whosturn == "black") {
+			//Checking to see if black player has checkmated white
+			//Checking to see if black player has won
+			myID = myGame.whitekingid;
+		}
+		else if (myGame.whosturn == "white") {
+			//Checking to see if white player has checkmated black
+			//Checking to see if white player has won
+			myID = myGame.blackkingid;
+		}
 
+		var kingCell = myBoard.gameArray[myID[0]][myID[1]];
+
+
+		if (isValidMove(movedCell.id, myID, 0, 0)) {
+
+			//and king has no valid moves
+			var i;
+			var q;
+			var tmpTile;
+			var realTurn;
+			for (i = 0; i < myBoard.gameArray.length; i++) {
+				for (q = 0; q < myBoard.gameArray[i].length; q++) {
+					tmpTile = new tile();
+					tmpTile.id = myBoard.gameArray[i][q].id;
+					tmpTile.piececolor = kingCell.piececolor;
+					tmpTile.piecetype = kingCell.piecetype;
+					tmpTile.piecename = kingCell.piecename;
+					realTurn = myGame.whosturn;
+					myGame.whosturn = myBoard.gameArray[i][q].piececolor;
+					if (isValidMove(kingCell.id, myBoard.gameArray[i][q].id,0,tmpTile) && myBoard.gameArray[i][q].piececolor != kingCell.piececolor) {
+						console.log("valid move option");
+						myGame.whosturn = realTurn;
+						return false;
+					}
+					myGame.whosturn = realTurn;
+				}
+			}
+			return true;
+		}
 	}
 };
 
@@ -316,6 +359,9 @@ function movePiece() {
 	myGame.firstcell = "";
 	myGame.secondcell = "";
 
+	if (myGame.isCheckMate(cell2)) {
+		console.log(myGame.whosTurn + " winner");
+	}
 	//Switch turns
 	myGame.switchTurns();
 }
