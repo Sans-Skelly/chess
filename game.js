@@ -212,6 +212,8 @@ function game() {
 	this.whosturn = "black";
 	this.firstcell = "";
 	this.secondcell = "";
+	this.blackkingid = "04";
+	this.whitekingid = "74";
 }
 game.prototype = {
 	switchTurns: function () {
@@ -277,6 +279,15 @@ function movePiece() {
 	var cell1 = myBoard.gameArray[myGame.firstcell.toString()[0]][myGame.firstcell.toString()[1]];
 	var cell2 = myBoard.gameArray[myGame.secondcell.toString()[0]][myGame.secondcell.toString()[1]];
 
+	if (cell1.piecetype == "king") {
+		if (myGame.whosTurn == "black") {
+			myGame.blackkingid = cell2.id;
+		}
+		else if (myGame.whosTurn == "white") {
+			myGame.whitekingid = cell2.id;
+		}
+
+	}
 
 	//Remove piece in new cell (take piece)
 	$("#"+myGame.secondcell).removeClass(cell2.piecename);
