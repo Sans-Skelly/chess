@@ -330,6 +330,8 @@ function isValidMove(fromID, toID) {
 	var negitiveIX = 1;
 	var negitiveIY = 1;
 	var negitiveI = 1;
+
+	//Logic for each piece type
 	if (cell1.piecetype == "pawn") {
 		//PAWN
 		var numberOfYMoves;
@@ -525,9 +527,6 @@ function isValidMove(fromID, toID) {
 			return false;
 		}
 	}
-
-
-	// return true;
 }
 
 //On Load
