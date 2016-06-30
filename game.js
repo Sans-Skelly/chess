@@ -360,11 +360,13 @@ function movePiece() {
 	myGame.firstcell = "";
 	myGame.secondcell = "";
 
+	var textwhosturn = capitalizeFirstLetter(myGame.whosturn);
+
 	if (myGame.isCheckMate(cell2)) {
 		myGame.playing = false;
-		$("#turntext").text(myGame.whosturn + " is the winner!");
-		console.log(myGame.whosturn + " winner");
-		alert(myGame.whosturn + " is the winner!");
+		$("#turntext").text(textwhosturn + " is the winner!");
+		console.log(textwhosturn + " winner");
+		alert(textwhosturn + " is the winner!");
 	}
 	else {
 		//Switch turns
@@ -642,4 +644,9 @@ function start() {
 	myBoard.setupClicks();
 
 	myGame = new game();
+}
+
+//Other Functions
+function capitalizeFirstLetter(string) {
+    return string[0].toUpperCase() + string.slice(1);
 }
