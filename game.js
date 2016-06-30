@@ -527,6 +527,9 @@ function isValidMove(fromID, toID) {
 			return false;
 		}
 	}
+    if (cell1.piecetype == ".") {
+        return false;
+    }
 }
 
 //On Load
