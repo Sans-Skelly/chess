@@ -324,10 +324,10 @@ function movePiece() {
 	var cell2 = myBoard.gameArray[myGame.secondcell.toString()[0]][myGame.secondcell.toString()[1]];
 
 	if (cell1.piecetype == "king") {
-		if (myGame.whosTurn == "black") {
+		if (myGame.whosturn == "black") {
 			myGame.blackkingid = cell2.id;
 		}
-		else if (myGame.whosTurn == "white") {
+		else if (myGame.whosturn == "white") {
 			myGame.whitekingid = cell2.id;
 		}
 
@@ -362,10 +362,14 @@ function movePiece() {
 
 	if (myGame.isCheckMate(cell2)) {
 		myGame.playing = false;
-		console.log(myGame.whosTurn + " winner");
+		$("#turntext").text(myGame.whosturn + " is the winner!");
+		console.log(myGame.whosturn + " winner");
+		alert(myGame.whosturn + " is the winner!");
 	}
-	//Switch turns
-	myGame.switchTurns();
+	else {
+		//Switch turns
+		myGame.switchTurns();
+	}
 }
 function isValidMove(fromID, toID, newcell1, newcell2) {
 	var fromIDText = fromID.toString();
