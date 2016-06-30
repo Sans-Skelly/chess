@@ -319,7 +319,7 @@ function movePiece() {
 	//Switch turns
 	myGame.switchTurns();
 }
-function isValidMove(fromID, toID, newcell1, newcell2, switchturn) {
+function isValidMove(fromID, toID, newcell1, newcell2) {
 	var fromIDText = fromID.toString();
 	var fromIDX = parseInt(fromIDText[1]);
 	var fromIDY = parseInt(fromIDText[0]);
@@ -460,7 +460,7 @@ function isValidMove(fromID, toID, newcell1, newcell2, switchturn) {
 						tmpTile.piecename = cell1.piecename;
 						realTurn = myGame.whosturn;
 						myGame.whosturn = myBoard.gameArray[i][q].piececolor;
-						if (isValidMove(myBoard.gameArray[i][q].id, toID,0,tmpTile,true) && myBoard.gameArray[i][q].piececolor != cell1.piececolor) {
+						if (isValidMove(myBoard.gameArray[i][q].id, toID,0,tmpTile) && myBoard.gameArray[i][q].piececolor != cell1.piececolor) {
 							console.log("false");
 							myGame.whosturn = realTurn;
 							return false;
