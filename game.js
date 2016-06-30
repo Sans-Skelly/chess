@@ -457,7 +457,67 @@ function isValidMove(fromID, toID) {
 			return false;
 		}
 	}
-	//queen
+	if (cell1.piecetype == "queen") {
+		if (XDifferece > 0 && YDifferece === 0) {
+			//Moving left or right
+			negitiveI = 1;
+			if (fromIDX > toIDX) {
+				// moving left
+				negitiveI = -1;
+			}
+			for (i = 1; i < XDifferece; i++) {
+				newX = fromIDX + (i * negitiveI);
+				tmpcell = myBoard.gameArray[fromIDY][newX];
+				if (tmpcell.piececolor != ".") {
+					return false;
+				}
+			}
+			return true;
+		}
+		else if (XDifferece === 0 && YDifferece > 0) {
+			// Moving up or down
+			negitiveI = 1;
+			if (fromIDY > toIDY) {
+				// moving up
+				negitiveI = -1;
+			}
+
+			for (i = 1; i < YDifferece; i++) {
+				newY = fromIDY + (i * negitiveI);
+				tmpcell = myBoard.gameArray[newY][fromIDX];
+				if (tmpcell.piececolor != ".") {
+					return false;
+				}
+			}
+			return true;
+		}
+		else if (XDifferece == YDifferece) {
+			//Moving diangle
+			negitiveIX = 1;
+			negitiveIY = 1;
+			if ((fromIDX - toIDX) > 0) {
+				// lower x
+				negitiveIX = -1;
+			}
+			if ((fromIDY - toIDY) > 0) {
+				//lower y
+				negitiveIY = -1;
+			}
+			for (i = 1; i < XDifferece; i++) {
+				newX = fromIDX + (i * negitiveIX);
+				newY = fromIDY + (i * negitiveIY);
+				tmpcell = myBoard.gameArray[newY][newX];
+				if (tmpcell.piececolor != ".") {
+					return false;
+				}
+			}
+			return true;
+		}
+		else {
+			//Moving more then 1 square
+			return false;
+		}
+	}
 	//knight
 
 
