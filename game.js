@@ -330,7 +330,7 @@ function isValidMove(fromID, toID) {
 	var tmpcell;
 	var negitiveIX = 1;
 	var negitiveIY = 1;
-
+	var negitiveI = 1;
 	if (cell1.piecetype == "pawn") {
 		//PAWN
 		var numberOfYMoves;
@@ -384,7 +384,7 @@ function isValidMove(fromID, toID) {
 	}
 	if (cell1.piecetype == "rook") {
 
-		var negitiveI = 1;
+		negitiveI = 1;
 		if (XDifferece === 0 && YDifferece > 0) {
 			// Moving up or down
 			if (fromIDY > toIDY) {
