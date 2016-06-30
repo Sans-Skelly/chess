@@ -441,7 +441,6 @@ function isValidMove(fromID, toID) {
 			if ((fromIDY - toIDY) > 0) {
 				//lower y
 				negitiveIY = -1;
-				console.log("negitive y");
 			}
 			for (i = 1; i < XDifferece; i++) {
 				newX = fromIDX + (i * negitiveIX);
