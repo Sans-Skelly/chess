@@ -250,7 +250,7 @@ game.prototype = {
 			var i;
 			var q;
 			var tmpTile;
-			var realTurn;
+			var realTurn = myGame.whosturn;
 			for (i = 0; i < myBoard.gameArray.length; i++) {
 				for (q = 0; q < myBoard.gameArray[i].length; q++) {
 					tmpTile = new tile();
@@ -258,7 +258,6 @@ game.prototype = {
 					tmpTile.piececolor = kingCell.piececolor;
 					tmpTile.piecetype = kingCell.piecetype;
 					tmpTile.piecename = kingCell.piecename;
-					realTurn = myGame.whosturn;
 					myGame.whosturn = myBoard.gameArray[i][q].piececolor;
 					if (isValidMove(kingCell.id, myBoard.gameArray[i][q].id,0,tmpTile) && myBoard.gameArray[i][q].piececolor != kingCell.piececolor) {
 						console.log("valid move option");
