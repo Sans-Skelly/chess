@@ -276,14 +276,13 @@ game.prototype = {
 function clicked(id) {
 	if (myGame.playing) {
 		var idString = id.toString();
-		var whosTurn = myGame.whosturn;
 
 		var currentcell = myBoard.gameArray[idString[0]][idString[1]];
 
 
 		if (myGame.firstcell === "") {
 			// first click
-			if (currentcell.piececolor == whosTurn) {
+			if (currentcell.piececolor == myGame.whosturn) {
 				myGame.firstcell = id;
 				$("#"+id).addClass("selected");
 			}
