@@ -308,7 +308,7 @@ function movePiece() {
 	//Switch turns
 	myGame.switchTurns();
 }
-function isValidMove(fromID, toID) {
+function isValidMove(fromID, toID, newcell1, newcell2, switchturn) {
 	var fromIDText = fromID.toString();
 	var fromIDX = parseInt(fromIDText[1]);
 	var fromIDY = parseInt(fromIDText[0]);
@@ -323,13 +323,26 @@ function isValidMove(fromID, toID) {
 	var cell1 = myBoard.gameArray[fromIDText[0]][fromIDText[1]];
 	var cell2 = myBoard.gameArray[toIDText[0]][toIDText[1]];
 
+	if (newcell1) {
+		cell1 = newcell1;
+	}
+	if (newcell2) {
+		cell2 = newcell2;
+	}
+
+
 	var i;
+	var q;
 	var newX;
 	var newY;
 	var tmpcell;
 	var negitiveIX = 1;
 	var negitiveIY = 1;
 	var negitiveI = 1;
+
+	if (cell1.piececolor == cell2.piececolor && cell1.piececolor == myGame.whosturn) {
+		return false;
+	}
 
 	//Logic for each piece type
 	if (cell1.piecetype == "pawn") {
@@ -423,6 +436,26 @@ function isValidMove(fromID, toID) {
 	}
 	if (cell1.piecetype == "king") {
 		if (XDifferece <= 1 && YDifferece <= 1) {
+			var tmpTile;
+			var realTurn;
+			for (i = 0; i < myBoard.gameArray.length; i++) {
+				for (q = 0; q < myBoard.gameArray[i].length; q++) {
+					if (myBoard.gameArray[i][q].piecetype != "king") {
+						tmpTile = new tile();
+						tmpTile.id = toID;
+						tmpTile.piececolor = cell1.piececolor;
+						tmpTile.piecetype = cell1.piecetype;
+						tmpTile.piecename = cell1.piecename;
+						realTurn = myGame.whosturn;
+						myGame.whosturn = myBoard.gameArray[i][q].piececolor;
+						if (isValidMove(myBoard.gameArray[i][q].id, toID,0,tmpTile,true) && myBoard.gameArray[i][q].piececolor != cell1.piececolor) {
+							console.log("false");
+							myGame.whosturn = realTurn;
+							return false;
+						}
+					}
+				}
+			}
 			return true;
 		}
 		else {
