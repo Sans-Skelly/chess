@@ -518,7 +518,15 @@ function isValidMove(fromID, toID) {
 			return false;
 		}
 	}
-	//knight
+	if (cell1.piecetype == "knight") {
+		if ((XDifferece == 1 && YDifferece == 2) || (YDifferece == 1 && XDifferece == 2)) {
+			//Valid move
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
 
 
 	// return true;
