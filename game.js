@@ -212,8 +212,8 @@ function game() {
 	this.whosturn = "black";
 	this.firstcell = "";
 	this.secondcell = "";
-	this.blackkingid = "04";
-	this.whitekingid = "74";
+	this.blackkingid = "74";
+	this.whitekingid = "04";
 }
 game.prototype = {
 	switchTurns: function () {
