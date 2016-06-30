@@ -340,6 +340,7 @@ function isValidMove(fromID, toID, newcell1, newcell2, switchturn) {
 	var negitiveIY = 1;
 	var negitiveI = 1;
 
+	//Checking to see if piece colors are equal so can't cause check by your own piece
 	if (cell1.piececolor == cell2.piececolor && cell1.piececolor == myGame.whosturn) {
 		return false;
 	}
