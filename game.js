@@ -454,6 +454,7 @@ function isValidMove(fromID, toID, newcell1, newcell2, switchturn) {
 							myGame.whosturn = realTurn;
 							return false;
 						}
+						myGame.whosturn = realTurn;
 					}
 				}
 			}
