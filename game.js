@@ -328,6 +328,8 @@ function isValidMove(fromID, toID) {
 	var newX;
 	var newY;
 	var tmpcell;
+	var negitiveIX = 1;
+	var negitiveIY = 1;
 
 	if (cell1.piecetype == "pawn") {
 		//PAWN
@@ -429,8 +431,8 @@ function isValidMove(fromID, toID) {
 
 	}
 	if (cell1.piecetype == "bishop") {
-		var negitiveIX = 1;
-		var negitiveIY = 1;
+		negitiveIX = 1;
+		negitiveIY = 1;
 		if (XDifferece == YDifferece) {
 			if ((fromIDX - toIDX) > 0) {
 				// lower x
