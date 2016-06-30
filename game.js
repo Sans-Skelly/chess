@@ -214,6 +214,7 @@ function game() {
 	this.secondcell = "";
 	this.blackkingid = "74";
 	this.whitekingid = "04";
+	this.playing = true;
 }
 game.prototype = {
 	switchTurns: function () {
@@ -274,46 +275,48 @@ game.prototype = {
 
 //Functions
 function clicked(id) {
-	var idString = id.toString();
-	var whosTurn = myGame.whosturn;
+	if (myGame.playing) {
+		var idString = id.toString();
+		var whosTurn = myGame.whosturn;
 
-	var currentcell = myBoard.gameArray[idString[0]][idString[1]];
+		var currentcell = myBoard.gameArray[idString[0]][idString[1]];
 
 
-	if (myGame.firstcell === "") {
-		// first click
-		if (currentcell.piececolor == whosTurn) {
-			myGame.firstcell = id;
-			$("#"+id).addClass("selected");
-		}
-		else if (currentcell.piececolor != "."){
-			alert("That isn't your piece");
-		}
-		else {
-			alert("Selected your piece you wish to move first");
-		}
-
-	}
-	else {
-		//second click
-		var cell1 = myBoard.gameArray[myGame.firstcell.toString()[0]][myGame.firstcell.toString()[1]];
-		if (myGame.firstcell == id) {
-			//first move = second move
-			myGame.firstcell = "";
-			$("#"+id).removeClass("selected");
-		}
-		else {
-			if (cell1.piececolor == currentcell.piececolor) {
-				alert("Can't have two pieces on one space");
+		if (myGame.firstcell === "") {
+			// first click
+			if (currentcell.piececolor == whosTurn) {
+				myGame.firstcell = id;
+				$("#"+id).addClass("selected");
 			}
-			else if (isValidMove(myGame.firstcell, id)) {
-				//second move
-				cell1.nummoves++;
-				myGame.secondcell = id;
-				movePiece();
+			else if (currentcell.piececolor != "."){
+				alert("That isn't your piece");
 			}
 			else {
-				alert("That is not a valid move");
+				alert("Selected your piece you wish to move first");
+			}
+
+		}
+		else {
+			//second click
+			var cell1 = myBoard.gameArray[myGame.firstcell.toString()[0]][myGame.firstcell.toString()[1]];
+			if (myGame.firstcell == id) {
+				//first move = second move
+				myGame.firstcell = "";
+				$("#"+id).removeClass("selected");
+			}
+			else {
+				if (cell1.piececolor == currentcell.piececolor) {
+					alert("Can't have two pieces on one space");
+				}
+				else if (isValidMove(myGame.firstcell, id)) {
+					//second move
+					cell1.nummoves++;
+					myGame.secondcell = id;
+					movePiece();
+				}
+				else {
+					alert("That is not a valid move");
+				}
 			}
 		}
 	}
@@ -360,6 +363,7 @@ function movePiece() {
 	myGame.secondcell = "";
 
 	if (myGame.isCheckMate(cell2)) {
+		myGame.playing = false;
 		console.log(myGame.whosTurn + " winner");
 	}
 	//Switch turns
