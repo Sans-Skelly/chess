@@ -240,7 +240,6 @@ function clicked(id) {
 		if (currentcell.piececolor == whosTurn) {
 			myGame.firstcell = id;
 			$("#"+id).addClass("selected");
-			console.log(myGame.firstcell);
 		}
 		else if (currentcell.piececolor != "."){
 			alert("That isn't your piece");
@@ -445,7 +444,6 @@ function isValidMove(fromID, toID) {
 			for (i = 1; i < XDifferece; i++) {
 				newX = fromIDX + (i * negitiveIX);
 				newY = fromIDY + (i * negitiveIY);
-				console.log(newY + " " + newX);
 				tmpcell = myBoard.gameArray[newY][newX];
 				if (tmpcell.piececolor != ".") {
 					return false;
