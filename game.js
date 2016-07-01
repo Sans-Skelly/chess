@@ -363,10 +363,13 @@ function movePiece() {
 	var textwhosturn = capitalizeFirstLetter(myGame.whosturn);
 
 	if (myGame.isCheckMate(cell2)) {
-		myGame.playing = false;
 		$("#turntext").text(textwhosturn + " is the winner!");
 		console.log(textwhosturn + " winner");
-		alert(textwhosturn + " is the winner!");
+		setTimeout(function(){
+			alert(textwhosturn + " is the winner!");
+		}, 1);
+
+		myGame.playing = false;
 	}
 	else {
 		//Switch turns
